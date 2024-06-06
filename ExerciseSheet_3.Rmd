@@ -44,6 +44,27 @@ c)  For all of the following tasks in this exercise sheet we ask you to
 
 d)  Name 2 strengths and 2 weaknesses of git. (Don't forget to create a
     commit after this answer, see *1c*)
+    -  **Strengths**:
+        -   Very hard to lose files with git, as it is designed to
+            track changes to files and directories. This makes it very
+            easy to revert to a previous version of a file or directory
+            if something goes wrong.
+        -   Git is very fast and efficient. It is designed to handle
+            large projects and is very good at managing changes to the
+            codebase. This makes it a great tool for teams working on
+            large projects.
+    - **Weaknesses**:
+        -   Git can be complex to use. It has a lot of features and
+            options that can be overwhelming for new users. This can
+            make it hard to use git effectively and can lead to
+            mistakes if you are not careful.
+        -   Struggles with binary (i.e. non-text) files and large files.
+            Git is designed to track changes to text files, so it can
+            struggle with binary files like images, videos, and
+            executables. This can make it hard to track changes to
+            these files and can lead to problems when working with them
+            in git.
+        
 e)  Knit this exercise sheet. Some new files will automatically be
     generated when knitting the sheet e.g. the HTML page. Ignore these
     files, as we only want to track the source files themselves.
