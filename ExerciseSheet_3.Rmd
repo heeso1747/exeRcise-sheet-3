@@ -77,7 +77,7 @@ a)  Create a new repository on GitHub in your account named
     `exeRcise-sheet-3`. Make sure you create a **public repository** so
     we are able to see it for grading. Add the link to the repository
     below:
-    https://github.com/heeso1747/exeRcise-sheet-3/tree/main
+    <https://github.com/heeso1747/exeRcise-sheet-3/tree/main>
     
 b)  Push your code to this new repository by copying and executing the
     snippet on github listed under
@@ -213,10 +213,21 @@ a)  Go to <https://github.com/owid/owid-datasets/tree/master/datasets>
     and choose a dataset that interests you. You can have a look at
     <https://ourworldindata.org/> to gather some inspiration.
 b)  Download the dataset and track it in git.
+
+```{r}
+# Load the data
+life_expectancy <- read_csv("life_expectancy_oecd.csv")
+
+# Check the structure of the dataset
+str(life_expectancy)
+```
+
+
+
 c)  Put the name / title of the dataset and a link to it below.
 
--   Dataset Name: ...
--   Link: <https://github.com/owid/owid-datasets/>...
+-   Dataset Name: Life expectancy - OECD
+-   Link: <https://github.com/owid/owid-datasets/tree/master/datasets/Life%20expectancy%20-%20OECD> 
 
 d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
