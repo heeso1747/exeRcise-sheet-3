@@ -203,6 +203,7 @@ kable(popular_names, format = "html", caption = "Top 10 Most Popular Baby Names 
 ```
 
 
+
 ## Exercise 4: Open Analysis (4 points)
 
 This exercise is a bit more open-ended. You can choose any dataset from
@@ -263,27 +264,21 @@ f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
     
-```{r}
+```{r top10growth, fig.cap="Top 10 OECD Countries with the Highest Growth Rate in Life Expectancy", fig.label="fig:top10growth"}
 library(ggplot2)
 
-# Filter the name of the top 10 countries
-top_countries_names <- top_countries$Entity
-
-# Filter top 10 countries data from the entire dataset
-top_countries_data <- life_expectancy %>%
-  filter(Entity %in% top_countries_names)
-
-# Create a line plot for the top 10 countries with the highest growth in life expectancy
-ggplot(data = top_countries_data, aes(x = Year, y = `Life Expectancy (OECD)`, group = Entity, color = Entity)) +
-  geom_line() +
-  labs(title = "Top 10 Countries with the Highest Growth in Life Expectancy",
-       x = "Year",
-       y = "Life Expectancy (years)",
-       caption = "Data source: OECD") +
-  theme_minimal() +
-  theme(legend.position = "bottom")
+# Create a bar plot to visualize the growth rate of life expectancy in OECD countries
+ggplot(top_countries, aes(x = reorder(Entity, Growth_Rate), y = Growth_Rate)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  coord_flip() +
+  labs(title = "Top 10 OECD Countries with the Highest Growth Rate in Life Expectancy",
+       x = "Country",
+       y = "Growth Rate (%)") +
+  theme_minimal()
 ```
-- The analysis shows that China has had the highest growth rate in life expectancy over the past few decades. However, this does not mean that China now has the highest life expectancy among OECD countries. Despite the fastest growth in life expectancy in China, the life expectancy itself may still not be as high as in many other countries. This shows that China has made significant health and social development compared to the past, but there is still a gap in life expectancy when compared to other industrialized countries.
+
+- The figure \@ref(fig:top10growth) shows the top 10 OECD countries with the highest growth rate in life expectancy, with China leading the way.
+
 
 ## Final Note
 
