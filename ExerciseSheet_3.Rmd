@@ -274,7 +274,8 @@ ggplot(top_countries, aes(x = reorder(Entity, Growth_Rate), y = Growth_Rate)) +
   labs(title = "Top 10 OECD Countries with the Highest Growth Rate in Life Expectancy",
        x = "Country",
        y = "Growth Rate (%)") +
-  theme_minimal()
+  theme_minimal() +
+  theme(plot.title = element_text(size = 12))  # Adjust title size 
 ```
 
 - The figure \@ref(fig:top10growth) shows the top 10 OECD countries with the highest growth rate in life expectancy, with China leading the way.
