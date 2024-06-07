@@ -249,9 +249,11 @@ life_expectancy_summary <- life_expectancy %>%
 # Print the results
 head(life_expectancy_summary, 5)
 
-# Find the country with the highest growth rate
-top_country <- life_expectancy_summary[1, ]
-print(top_country)
+# Find the top 10 countries with the highest growth rate
+top_countries <- life_expectancy_summary %>%
+  top_n(10, Growth_Rate)
+
+print(top_countries)
 ```
 
 - The country with the highest growth rate in life expectancy is China with a growth rate of 75.11%.
@@ -260,7 +262,28 @@ print(top_country)
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
+    
+```{r}
+library(ggplot2)
 
+# Filter the name of the top 10 countries
+top_countries_names <- top_countries$Entity
+
+# Filter top 10 countries data from the entire dataset
+top_countries_data <- life_expectancy %>%
+  filter(Entity %in% top_countries_names)
+
+# Create a line plot for the top 10 countries with the highest growth in life expectancy
+ggplot(data = top_countries_data, aes(x = Year, y = `Life Expectancy (OECD)`, group = Entity, color = Entity)) +
+  geom_line() +
+  labs(title = "Top 10 Countries with the Highest Growth in Life Expectancy",
+       x = "Year",
+       y = "Life Expectancy (years)",
+       caption = "Data source: OECD") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+- The analysis shows that China has had the highest growth rate in life expectancy over the past few decades. However, this does not mean that China now has the highest life expectancy among OECD countries. Despite the fastest growth in life expectancy in China, the life expectancy itself may still not be as high as in many other countries. This shows that China has made significant health and social development compared to the past, but there is still a gap in life expectancy when compared to other industrialized countries.
 
 ## Final Note
 
