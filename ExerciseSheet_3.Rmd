@@ -148,10 +148,19 @@ print(paste("Total babies born in 2023:", total_babies_2023))
 ```
 
 - In 2022 had the bigger baby-boom with a total of 25,199 babies born, compared to 2023 with a total of 24,229 babies born.
-
     
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
+    
+```{r}
+# Add a new column 'year' to both datasets
+vornamen_2022$year <- 2022
+vornamen_2023$year <- 2023
+
+# Check the datasets
+head(vornamen_2022, 5)
+head(vornamen_2023, 5)
+```
 
 e)  Combine both datasets into one using `bind_rows()`.
 
