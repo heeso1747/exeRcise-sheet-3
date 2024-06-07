@@ -232,13 +232,35 @@ d)  Come up with a (research) question you want to answer with the data
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
 
-- ** Research Question: ** Which OECD country had the highest growth rate in life expectancy over the past 60 years?
+- ** Research Question: ** Which OECD country had the highest growth rate in life expectancy?
   - This question helps to assess how effectively countries are improving their health systems in relation to public health and social development.
 
 e)  Use R to answer your chosen question.
+
+```{r}
+# Calculate initial and final life expectancy for each country
+life_expectancy_summary <- life_expectancy %>%
+  group_by(Entity) %>%
+  summarise(Initial_Life_Expectancy = first(`Life Expectancy (OECD)`),
+            Final_Life_Expectancy = last(`Life Expectancy (OECD)`),
+            Growth_Rate = (Final_Life_Expectancy - Initial_Life_Expectancy) / Initial_Life_Expectancy * 100) %>%
+  arrange(desc(Growth_Rate))
+
+# Print the results
+head(life_expectancy_summary, 5)
+
+# Find the country with the highest growth rate
+top_country <- life_expectancy_summary[1, ]
+print(top_country)
+```
+
+- The country with the highest growth rate in life expectancy is China with a growth rate of 75.11%.
+
+
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
+
 
 ## Final Note
 
