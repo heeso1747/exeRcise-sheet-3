@@ -164,6 +164,19 @@ head(vornamen_2023, 5)
 
 e)  Combine both datasets into one using `bind_rows()`.
 
+```{r}
+library(dplyr)
+
+# Combine both datasets
+vornamen_combined <- bind_rows(vornamen_2022, vornamen_2023)
+
+# Check the combined dataset
+head(vornamen_combined, 5)
+
+# Check the unique years in the combined dataset
+unique(vornamen_combined$year)
+```
+
 f)  Combine the counts for same names to determine the most popular
     names across both years. Print out the top 10 names in a nicely
     formatted table for both years. Include a table caption.
