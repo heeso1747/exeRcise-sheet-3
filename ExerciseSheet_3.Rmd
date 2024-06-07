@@ -101,10 +101,43 @@ b)  Load the data for both years into R. Check the type of the count
     not numeric? Fix the problem in an appropriate manner, it is OK if
     some of the counts are inaccurate because of this. Explain your
     solution and the repercussions.
+    
+```{r}
+
+library(readr)
+
+# Load the data for 2022
+vornamen_2022 <- read_csv("vornamen_2022.csv")
+
+# Load the data for 2023
+vornamen_2023 <- read_csv("vornamen_2023.csv")
+
+# Check the type of the count variable
+str(vornamen_2022)
+str(vornamen_2023)
+```
+- Given that the 'Anzahl' variable was loaded as a string (chr) type, it likely contains characters other than numbers. For example, there may be commas (,) between numbers, or special characters that indicate missing values.
+- To fix this, we can remove all non-numeric characters from the 'Anzahl' variable and convert it to a numeric type.
+
+
+
+```{r}
+# Remove all non-numeric characters from the 'Anzahl' variable
+vornamen_2022$Anzahl <- as.numeric(gsub("[^0-9]", "", vornamen_2022$Anzahl))
+vornamen_2023$Anzahl <- as.numeric(gsub("[^0-9]", "", vornamen_2023$Anzahl))
+
+# Convert the 'Anzahl' variable to a numeric type
+vornamen_2022$Anzahl <- as.numeric(vornamen_2022$Anzahl)
+vornamen_2023$Anzahl <- as.numeric(vornamen_2023$Anzahl)
+
+# Check the type of the count variable
+str(vornamen_2022)
+str(vornamen_2023)
+```
 
 c)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
-
+    
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
 
