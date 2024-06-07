@@ -222,8 +222,6 @@ life_expectancy <- read_csv("life_expectancy_oecd.csv")
 str(life_expectancy)
 ```
 
-
-
 c)  Put the name / title of the dataset and a link to it below.
 
 -   Dataset Name: Life expectancy - OECD
@@ -233,6 +231,10 @@ d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
+
+- ** Research Question: ** Which OECD country had the highest growth rate in life expectancy over the past 60 years?
+  - This question helps to assess how effectively countries are improving their health systems in relation to public health and social development.
+
 e)  Use R to answer your chosen question.
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
